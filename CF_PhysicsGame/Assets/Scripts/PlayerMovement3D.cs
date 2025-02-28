@@ -24,6 +24,9 @@ public class PlayerMovement3D : MonoBehaviour
 
 
 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,26 +118,26 @@ public class PlayerMovement3D : MonoBehaviour
     {
         if(collision.gameObject.tag == "Treasure")
         {
-            score++;
+            GameManager.Instance.score++;
             Destroy(collision.gameObject);
         }
 
         if(collision.gameObject.tag == "Enemy")
         {
-            score--;
-            Destroy(gameObject);
+            GameManager.Instance.score--;
+            Destroy(collision.gameObject);
             //SceneManagement.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if(collision.gameObject.tag == "Treasure")
-        {
-            score++;
-            Destroy(collision.gameObject);
-        }
-    }
+    // private void OnTriggerEnter(Collider collision)
+    // {
+    //     if(collision.gameObject.tag == "Treasure")
+    //     {
+    //         GameManager.Instance.score++;
+    //         Destroy(collision.gameObject);
+    //     }
+    // }
         
         
 }
