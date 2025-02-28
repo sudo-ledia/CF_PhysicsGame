@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +32,24 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         score = myPlayer.score;
+
+        if(Input.GetKey(KeyCode.Space) && SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //or
+            // SceneManager.Load("GameScene");
+        }
+
+        if(Input.GetKey(KeyCode.Space) && SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+            //or
+            // SceneManager.Load("GameScene");
+        }
+        
     }
+
+
 
 
 }
